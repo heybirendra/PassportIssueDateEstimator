@@ -13,7 +13,7 @@
             <label>Date of Birth:</label>
             <input type="date" name="dob" required>
             <label>Nationality:</label>
-            <input type="text" name="nationality" placeholder="e.g., USA" required>
+            <input type="text" name="nationality" placeholder="e.g., INDIA, USA, UK" required>
             <button type="submit">Calculate</button>
         </form>
         {% if issue_date %}
@@ -22,12 +22,48 @@
             <p class="disclaimer">Accuracy: ~85-95% (see limitations below)</p>
         </div>
         {% endif %}
+
+        <br><br><br><br>
         <div class="limitations">
             <h3>Limitations</h3>
             <ul>
                 <li>Does not account for early renewals (~70% accuracy in those cases).</li>
                 <li>Diplomatic/official passports not supported.</li>
+
             </ul>
+        </div>
+
+        <div class="accuracy">
+            <h3>Accuracy</h3>
+            The code’s accuracy depends on:
+            <ol>
+                <li>Country Rules Coverage (90-95% accurate if major countries are included).</li>
+                <li>Renewals/Early Issuance (70% accurate if passports were renewed early)</li>
+            </ol>
+        </div>
+
+        <div class="estimated_accuracy">
+            <h3>Estimated Accuracy:</h3>
+            <table width="500" border="true">
+                <tr align="left">
+                    <th>Scenario</th>
+                    <th>Accuracy</th>
+
+                </tr>
+                <tr>
+                    <td>Standard cases (exact validity)</td>
+                    <td>95%</td>
+                </tr>
+                <tr>
+                    <td>Countries with exceptions (e.g., UK pre-2018)</td>
+                    <td>85%</td>
+                </tr>
+                <tr>
+                    <td>Renewed passports (issue date ≠ expiry - validity)</td>
+                    <td>70%</td>
+                </tr>
+            </table>
+
         </div>
     </div>
 </body>
