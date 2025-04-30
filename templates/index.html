@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Passport Issue Date Estimator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Passport Issue Date Estimator</h1>
+        <form method="POST">
+            <label>Passport Expiry Date:</label>
+            <input type="date" name="expiry_date" required>
+            <label>Date of Birth:</label>
+            <input type="date" name="dob" required>
+            <label>Nationality:</label>
+            <input type="text" name="nationality" placeholder="e.g., USA" required>
+            <button type="submit">Calculate</button>
+        </form>
+        {% if issue_date %}
+        <div class="result">
+            <strong>Estimated Issue Date:</strong> {{ issue_date.strftime('%Y-%m-%d') }}
+            <p class="disclaimer">Accuracy: ~85-95% (see limitations below)</p>
+        </div>
+        {% endif %}
+        <div class="limitations">
+            <h3>Limitations</h3>
+            <ul>
+                <li>Does not account for early renewals (~70% accuracy in those cases).</li>
+                <li>Diplomatic/official passports not supported.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
